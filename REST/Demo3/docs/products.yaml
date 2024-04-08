@@ -1,0 +1,140 @@
+openapi: 3.0.0
+info:
+  title: Product API
+  description: CRUD API for managing products
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local server
+paths:
+  /products:
+    get:
+      summary: Retrieve all products
+      description: Retrieves all products from the database
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+    post:
+      summary: Create a new product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewProduct'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+  /products/{productId}:
+    parameters:
+      - name: productId
+        in: path
+        required: true
+        description: ID of the product to retrieve, update, or delete
+        schema:
+          type: string
+    get:
+      summary: Retrieve a specific product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+        '404':
+          description: Not Found
+    patch:
+      summary: Update a specific product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductUpdate'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateResponse'
+    delete:
+      summary: Delete a specific product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResponse'
+components:
+  schemas:
+    ProductList:
+      type: object
+      properties:
+        count:
+          type: integer
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductResponse'
+    ProductResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+        _id:
+          type: string
+        request:
+          type: object
+          properties:
+            type:
+              type: string
+            url:
+              type: string
+    NewProduct:
+      type: object
+      required:
+        - name
+        - price
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+    ProductUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+    UpdateResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        request:
+          type: object
+          properties:
+            type:
+              type: string
+            url:
+              type: string
+    DeleteResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        

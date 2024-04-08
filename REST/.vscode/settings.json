@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "swaggerviewer:openapi": "file:///g%3A/FSAD/REST/Demo3/docs/orders.yaml"
+    }
+}

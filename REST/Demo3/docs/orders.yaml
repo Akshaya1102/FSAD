@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: Order API
+  description: CRUD API for managing orders
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local server
+paths:
+  /orders:
+    get:
+      summary: Retrieve orders with pagination and filtering
+      description: |
+        Retrieves orders with optional pagination and filtering.
+        Query parameters:
+        - `pageSize`: Number of items per page (default: 5)
+        - `page`: Page number (default: 1)
+        - `quantity`: Minimum quantity of orders to retrieve
+      parameters:
+        - name: pageSize
+          in: query
+          description: Number of items per page
+          schema:
+            type: integer
+            minimum: 1
+          example: 5
+        - name: page
+          in: query
+          description: Page number
+          schema:
+            type: integer
+            minimum: 1
+          example: 1
+        - name: quantity
+          in: query
+          description: Minimum quantity of orders
+          schema:
+            type: integer
+            minimum: 0
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderList'
+    post:
+      summary: Create a new order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewOrder'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+  /orders/{orderId}:
+    parameters:
+      - name: orderId
+        in: path
+        required: true
+        description: ID of the order to retrieve or delete
+        schema:
+          type: string
+    get:
+      summary: Retrieve a specific order
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+        '404':
+          description: Not Found
+    delete:
+      summary: Delete a specific order
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResponse'
+components:
+  schemas:
+    OrderList:
+      type: object
+      properties:
+        count:
+          type: integer
+        totalPages:
+          type: integer
+        currentPage:
+          type: integer
+        pageSize:
+          type: integer
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderResponse'
+    OrderResponse:
+      type: object
+      properties:
+        _id:
+          type: string
+        product:
+          $ref: '#/components/schemas/Product'
+        quantity:
+          type: integer
+        request:
+          type: object
+          properties:
+            type:
+              type: string
+            url:
+              type: string
+    NewOrder:
+      type: object
+      required:
+        - productId
+        - quantity
+      properties:
+        productId:
+          type: string
+          description: ID of the product
+        quantity:
+          type: integer
+          description: Quantity of the product
+    DeleteResponse:
+      type: object
+      properties:
+        message:
+          type: string                  
+    Product:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+
