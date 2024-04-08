@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSE Example</title>
+</head>
+<body>
+
+<h1>Server-Sent Events Example</h1>
+
+<script>
+  // Create an EventSource object to establish the SSE connection
+  const eventSource = new EventSource('http://localhost:3000');
+
+  // Event listener for handling incoming messages
+  
+  eventSource.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    // Update the DOM or perform other actions based on received data
+    document.getElementById('output').innerHTML += '<br>' + `Received data: ${data.message}`;
+  };
+
+
+  // Event listener for handling connection errors
+  eventSource.onerror = (error) => {
+    console.error('Error:', error);
+    // Handle connection errors
+  };
+</script>
+
+<div id="output"></div>
+
+</body>
+</html>
