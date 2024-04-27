@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <button id="ajaxButton" type="button">Make a request</button>
+    <h1 id="h1id"> </h1>
+    <script>
+        (function () {
+            var httpRequest;
+            document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+
+            function makeRequest() {
+                fetch("http://localhost:4000/post", {
+                    method:"POST",
+                    headers: {
+                     "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({data:"Post no 1"})
+                })
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log(JSON.stringify(data));
+                        document.getElementById("h1id").innerText = data.message;
+                    }
+                    )
+                    .catch(error => {
+                        alert('There was a problem with the request.');
+                    });
+            }
+        })();
+    </script>
+</body>
+
+</html>
