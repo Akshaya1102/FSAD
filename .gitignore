@@ -11,7 +11,8 @@
 /REST/django_first_project
 /REST/grpc
 /REST/backend
-/webpack
+/webpack/node_modules
 /reactapp
 /NodeEcosystem
-/Security
+/Security/OAuth/node_modules
+/React
