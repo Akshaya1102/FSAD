@@ -16,3 +16,6 @@
 /NodeEcosystem
 /Security/OAuth/node_modules
 /React
+/AppDemo/nodeapp
+/AppDemo/users/node_modules
+/AppDemo/gateway/node_modules
