@@ -15,7 +15,11 @@
 /reactapp
 /NodeEcosystem
 /Security/OAuth/node_modules
-/React
+/React/Components/myapp
+/React/fullapplication
+/React/Components/myfirstreactapp/node_modules
+/React/routing/routeexample/node_modules
+/React/redux/redux/node_modules
 /AppDemo/nodeapp
 /AppDemo/users/node_modules
 /AppDemo/gateway/node_modules
