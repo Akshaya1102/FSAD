@@ -1,0 +1,43 @@
+{
+   
+  "users": [
+    {
+      "id":1,
+      "name":"Arun",
+      "location":"Chennai",
+      "skill":"react", 
+      "avatar_url":"https://eu.ui-avatars.com/api/?name=Arun&size=250"
+
+    },
+    {
+      "id":2,
+      "name":"Lite",
+      "location":"Boston",
+      "skill":"Testing", 
+      "avatar_url":"https://eu.ui-avatars.com/api/?name=Lite&size=250"
+    },
+    {
+      "id": 3,
+      "name": "Mike",
+      "location": "NYC",
+      "skill": "react", 
+      "avatar_url" : "https://eu.ui-avatars.com/api/?name=Mike&size=250"
+
+    },
+    {
+      "id": 4,
+      "name": "Akshaya",
+      "location": "Bangalore",
+      "skill": "Javscript", 
+      "avatar_url" : "https://eu.ui-avatars.com/api/?name=Akshaya&size=250"
+
+    },
+    {
+      "id": 5,
+      "name": "John",
+      "location": "Texas",
+      "skill": "Angular", 
+      "avatar_url" : "https://eu.ui-avatars.com/api/?name=John&size=250"
+    }
+  ]
+} 
