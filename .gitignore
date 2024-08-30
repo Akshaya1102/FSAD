@@ -1,4 +1,5 @@
-/CSR
+/CSR/myapp_csr_example/node_modules
+/CSR/serverapp/node_modules
 /Django_FSE
 /fetch.html
 /GraphQL_Demo2
