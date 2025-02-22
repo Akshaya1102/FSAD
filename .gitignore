@@ -4,6 +4,8 @@
 /fetch.html
 /GraphQL_Demo2
 /grpc
+/next
+/NodeEcosystem
 /Websockets-Documentapp
 /REST/Demo1/node_modules
 /REST/Demo2/node_modules
@@ -22,4 +24,9 @@
 /React/routing/routeexample/node_modules
 /React/redux/redux/node_modules
 /AppDemo
-
+/reactapp
+/Streamlitdemo
+/test
+/Webhooks/webhooks/node_modules
+/Webhooks/api/node_modules
+/Websockets/node_modules
