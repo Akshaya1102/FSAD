@@ -38,8 +38,8 @@ app.post('/post', (req, res) => {
 
 // Function to send webhook notification
 function sendWebhook(postCount) {
-  //const webhookUrl = 'http://localhost:3000/webhook'; //Replace with your actual webhook URL
-  const webhookUrl = 'https://webhook.site/3f1f862d-3891-418e-baea-2095378314b5';
+  const webhookUrl = 'http://localhost:3000/webhook'; //Replace with your actual webhook URL
+  //const webhookUrl = 'https://webhook.site/e0253902-293d-4c35-bbc4-7e3010681999';
   axios.post(webhookUrl, { postCount })
     .then(response => console.log(JSON.stringify(response.data)))
     .catch(error => console.error('Error sending webhook:', error));

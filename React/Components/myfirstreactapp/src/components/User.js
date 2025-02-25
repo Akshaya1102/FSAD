@@ -1,3 +1,4 @@
+import React from 'react';
 import useMyHook from "./useMyHook";
 
 const User = ({ username }) => {

@@ -1,9 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render component correctly 1`] = `
-<h1>
-  Hello Hi, 
-  , 
-   
-</h1>
+Array [
+  <h1>
+    Hello Hi, 
+    Guest
+    , 
+     
+  </h1>,
+  <h1>
+    Hello Hi, 
+    Guest
+    , 
+     
+  </h1>,
+]
 `;

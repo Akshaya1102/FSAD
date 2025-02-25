@@ -14,7 +14,6 @@
   const eventSource = new EventSource('http://localhost:3000');
 
   // Event listener for handling incoming messages
-  
   eventSource.onmessage = (event) => {
     const data = JSON.parse(event.data);
     // Update the DOM or perform other actions based on received data

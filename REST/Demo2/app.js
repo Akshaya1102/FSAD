@@ -13,6 +13,8 @@ const orders = [];
  * URI: /orders
  * Method: POST
  */
+
+//GET /localhost:3000/orders
 // req- request object,  res-response object, use req.body , req.params to read
 //app.verb(uri,handlerfn(req,res))
 app.post("/orders", (req, res) => {

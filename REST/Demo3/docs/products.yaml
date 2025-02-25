@@ -33,6 +33,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ProductResponse'
+        
   /products/{productId}:
     parameters:
       - name: productId

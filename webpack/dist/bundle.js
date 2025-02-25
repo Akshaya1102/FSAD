@@ -1,9 +1,1 @@
-"use strict";
-
-var _fetch = require("./fetch.js");
-console.log('Hello, This is a webpack demonstration!');
-(0, _fetch.makeRequest)();
-var greet = function greet(name) {
-  console.log("Hello, ".concat(name, "!"));
-};
-greet('World');
+(()=>{"use strict";console.log("Hello, This is a webpack demonstration!"),fetch("https://www.boredapi.com/api/activity",{method:"GET",headers:{"Content-Type":"application/json"}}).then((e=>e.json())).then((e=>{console.log(JSON.stringify(e)),document.getElementById("h1id").innerText=e.activity})).catch((e=>{alert("There was a problem with the request.")})),console.log("Hello, World!")})();

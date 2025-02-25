@@ -12,16 +12,21 @@ import React, { useState } from 'react';
       <button onClick={handleClick}>Increment</button>
     </div>
   );
-}*/
-
+}
+*/
 
 function Counter() {
   // Define state variable count and a function to update it, setCount
   const [count, setCount] = useState(0);
   const handleClick = () => {
-    setCount(count => count + 1);
-    setCount(count => count + 1);
-  
+     
+    console.log('Before setState: ', count); // Logs the current count
+    setCount(count => count + 1); 
+    setCount(count => count + 1); 
+    //setCount(count + 1);
+    //setCount(count + 1); 
+    
+    console.log('After setState calls: ', count); 
      } 
  
   return (

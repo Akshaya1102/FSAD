@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP/2 Fetch Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #response {
+            margin-top: 20px;
+            font-size: 16px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch from HTTP/2 Server</h1>
+    <button onclick="fetchData()">Fetch Data -High</button>
+    <p id="response"></p>
+    <button onclick="fetchDataM()">Fetch Data -medium</button>
+    <p id="responseM"></p>
+    <button onclick="fetchDataL()">Fetch Data -low</button>
+    <p id="responseL"></p>
+    <script>
+        async function fetchData() {
+            try {
+                document.getElementById("response").innerText = "Fetching...";
+                
+                const response = await fetch("https://localhost:8443/high", {
+                    method: "GET"
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.text();
+                document.getElementById("response").innerText = data;
+            } catch (error) {
+                document.getElementById("response").innerText = "Error fetching data!";
+                console.error("Fetch error:", error);
+            }
+        }
+        async function fetchDataM() {
+            try {
+                document.getElementById("responseM").innerText = "Fetching...";
+                
+                const response = await fetch("https://localhost:8443/medium", {
+                    method: "GET"
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.text();
+                document.getElementById("responseM").innerText = data;
+            } catch (error) {
+                document.getElementById("responseM").innerText = "Error fetching data!";
+                console.error("Fetch error:", error);
+            }
+        }
+        async function fetchDataL() {
+            try {
+                document.getElementById("responseL").innerText = "Fetching...";
+                
+                const response = await fetch("https://localhost:8443/low", {
+                    method: "GET"
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.text();
+                document.getElementById("responseL").innerText = data;
+            } catch (error) {
+                document.getElementById("responseL").innerText = "Error fetching data!";
+                console.error("Fetch error:", error);
+            }
+        }
+    </script>
+</body>
+</html>

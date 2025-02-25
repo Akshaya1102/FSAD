@@ -5,17 +5,17 @@ import Welcome from './components/Welcome';
 import Counter from './components/Counter';
 import FindUser from './components/FindUser';
 function App() {
-    let isLogged=false;
+    let isLogged=true;
     return (
       <div className="App">
       {isLogged && <ToggleButton />}
-      <Welcome name="john" age='34'/>
+      <Welcome age='34'/>
       <Welcome name="joe" age='35'/>
       <Counter />      
       <FindUser />
   
     </div>
-         
+        
     
   );
 }
