@@ -10,11 +10,12 @@
     <button id="ajaxButton" type="button">Make a request</button>
     <h1 id="h1id"> </h1>
     <script>
+        {
             var httpRequest;
             document.getElementById("ajaxButton").addEventListener('click', makeRequest);
 
             function makeRequest() {
-                fetch("http://localhost:3000/products", {
+                fetch("http://localhost:3000/product", {
                     method:"GET",
                     headers: {
                      "Content-Type": "application/json",
@@ -26,14 +27,14 @@
                     })
                     .then(data => {
                         console.log(JSON.stringify(data));
-                        document.getElementById("h1id").innerText = data.products[3].name;
+                        document.getElementById("h1id").innerText = data.products[4].name;
                     }
                     )
                     .catch(error => {
                         alert('There was a problem with the request.');
                     });
             }
-        })();
+        }
     </script>
 </body>
 
